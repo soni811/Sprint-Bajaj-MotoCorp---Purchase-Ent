@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sprint Bajaj MotoCorp - Purchase Entry</title> 
+ <script>
+  
+  function today(){
+      
+     var x= new Date();
+            document.getElementById("purchasedate").value =  x.getFullYear()+'-'+("0"+(x.getMonth()+1)).slice(-2)+'-'+("0"+x.getDate()).slice(-2);;
+  }
+   
+  function display(){
+   /* Fill  the Javascript code to display the message after calculation the amount */
+            var a = document.getElementById("vehiclename").value;
+            var b = document.getElementById("paymenttype").value;
+            var p;
+            if(a=="Bajaj Pulsar 160 Ns"){
+                p=111000;
+            }
+            else if(a=="Bajaj Pulsar 200 Ns"){
+                p=135000;
+            }else if(a=="Bajaj Dominar 400"){
+                p=207000;
+            }
+            var tot;
+            tot = p+(p*(30/100));
+            tot = Math.round(tot);
+            document.getElementById("result").innerHTML="An amount of Rs."+tot+", inclusive of tax has been received by "+b;
+
+
+   return false;
+  }
+ </script>
+ <style>
+   input[type="text"] {
+   width: 97%;}
+   
+   input[type="number"] {
+   width: 97%;}
+   
+   input[type="tel"],select {
+   width: 97%;}
+   
+            body{
+   background-color: #cc99ff ;
+      font-weight: bold; 
+   }
+          
+      div{
+      margin-left: auto;
+      margin-right: auto;
+            text-align: center;
+      color: #FF0000;
+      font-size: 20px; 
+      }
+  
+        h3{
+          /* Fill  the attributes and values */
+             color: #FFFFFF;
+             background-color: #696969;
+             margin-left: auto;
+             margin-right: auto;
+             text-align: center;
+             width: 50%;
+             font-family: verdana;
+             padding: 5px;
+             border-radius: 6px;
+            
+        }
+   
+         table, td, tr{
+      /* Fill  the attributes and values */
+            margin-left: auto;
+            margin-right: auto;
+            border-spacing: 1px;
+            width:50%;
+            border-radius: 6px;
+            color: #363730;
+            background-color: transparent;
+            padding: 1px;
+      border:solid 1px;
+      }
+
+            ::-webkit-input-placeholder { 
+   color: #696969;
+            font-weight: bold;
+            }
+   
+      #submit{
+   /* Fill  the attributes and values */
+               color: #FFFFFF;
+               background-color: #696969;
+               margin-left: auto;
+               margin-right: auto;
+               padding: 5px;
+               width: 50%;
+               font-family: verdana;
+               font-weight: bold;
+               border-radius: 6px;
+       
+   }
+ </style>
+</head>
+<body>
+<div>
+    
+    <h3>Sprint Bajaj MotoCorp - Purchase Entry</h3>
+    
+<form onsubmit="return display()">
+    <table>
+     <tr>
+            <td>Purchase Date</td>
+            <td><input type="text" id="purchasedate" required = "required" onfocus="today()"></tr>
+     <tr>
+            <td>Customer Name</td>
+            <td><input type="text" id="customername" placeholder="Enter the customer name"></td>
+        </tr>
+     <tr>
+           <td>Address</td>
+           <td><textarea id="address" rows="4" cols="50" placeholder="Enter the address" required></textarea></td>
+        </tr>
+     <tr>
+           <td>Phone Number</td>
+        <td><input type="text" id="phonenumber" placeholder="Enter the phone number"></td>
+        </tr>
+      <tr>
+            <td>Vehicle Name</td>   
+      <td><select name="vehiclename" id="vehiclename">
+      <option value="Select vehicle..">Select vehicle..</option>
+      <option value="Bajaj Pulsar 160 Ns">Bajaj Pulsar 160 Ns</option>
+      <option value="Bajaj Pulsar 200 Ns">Bajaj Pulsar 200 Ns</option>
+      <option value="Bajaj Dominar 400">Bajaj Dominar 400</option>
+  </select></td>
+</tr>
+        <tr>
+            <td>Payment Type</td>
+            <td><select name="paymenttype" id="paymenttype">
+                <option value="Card">Card</option>
+                <option value="Cash">Cash</option>
+            </select>
+        </td>
+        </tr>
+    </table>
+      <p><input type="submit" id="submit" name="submit"  value="CONFIRM PURCHASE"/></p>
+<div id="result"> </div>
+<br><br>
+
+</form>
+</div>
+</body>
+</html>
